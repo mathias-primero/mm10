@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gerador e Criptografia de Senhas</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Segurança digital</p>
+          <h1>Gerador e criptografia de senhas</h1>
+        </div>
+      </header>
+
+      <main class="grid">
+        <section class="card">
+          <h2>Gerar senha</h2>
+
+          <div class="row length-row">
+            <label for="length">Comprimento</label>
+            <span id="lengthValue" class="pill">16</span>
+          </div>
+          <input id="length" type="range" min="8" max="32" value="16" />
+
+          <div class="toggle-grid">
+            <label class="check">
+              <input id="includeUppercase" type="checkbox" checked />
+              <span>Maiúsculas</span>
+            </label>
+            <label class="check">
+              <input id="includeLowercase" type="checkbox" checked />
+              <span>Minúsculas</span>
+            </label>
+            <label class="check">
+              <input id="includeNumbers" type="checkbox" checked />
+              <span>Números</span>
+            </label>
+            <label class="check">
+              <input id="includeSymbols" type="checkbox" />
+              <span>Símbolos</span>
+            </label>
+          </div>
+
+          <button id="generateBtn" class="primary">Gerar senha</button>
+
+          <div class="output-box">
+            <input id="passwordOutput" type="text" readonly placeholder="Sua senha aparecerá aqui" />
+            <button id="copyPasswordBtn" class="secondary">Copiar</button>
+          </div>
+
+          <div class="strength-box">
+            <div class="strength-labels">
+              <span>Força</span>
+              <span id="strengthText">Média</span>
+            </div>
+            <div class="strength-bar">
+              <div id="strengthFill"></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="card">
+          <h2>Criptografar senha</h2>
+
+          <label for="plainText">Texto a ser criptografado</label>
+          <input id="plainText" type="text" placeholder="Ex: MinhaSenhaForte123" />
+
+          <label for="secretKey">Chave secreta</label>
+          <input id="secretKey" type="password" placeholder="Digite uma chave" />
+
+          <button id="encryptBtn" class="primary">Criptografar</button>
+
+          <div class="output-box stack">
+            <textarea id="encryptedOutput" rows="5" readonly placeholder="Resultado criptografado"></textarea>
+            <button id="copyEncryptedBtn" class="secondary">Copiar</button>
+          </div>
+        </section>
+
+        <section class="card">
+          <h2>Descriptografar</h2>
+
+          <label for="cipherInput">Texto criptografado</label>
+          <textarea id="cipherInput" rows="5" placeholder="Cole o resultado gerado acima"></textarea>
+
+          <label for="decryptKey">Chave secreta</label>
+          <input id="decryptKey" type="password" placeholder="Mesma chave usada na criptografia" />
+
+          <button id="decryptBtn" class="primary">Descriptografar</button>
+
+          <div class="output-box stack">
+            <textarea id="decryptedOutput" rows="5" readonly placeholder="Senha descriptografada"></textarea>
+            <button id="copyDecryptedBtn" class="secondary">Copiar</button>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
